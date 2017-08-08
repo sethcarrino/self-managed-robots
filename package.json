@@ -17,12 +17,17 @@
   },
   "homepage": "https://github.com/sethcarrino/user-directory#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
     "chalk": "^2.0.1",
     "express": "^4.15.3",
     "express-session": "^1.15.5",
     "express-validator": "^3.2.1",
     "mongodb": "^2.2.30",
-    "mustache-express": "^1.2.5"
+    "mongoose": "^4.11.6",
+    "mustache-express": "^1.2.5",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
   }
 }

@@ -1,44 +1,35 @@
-/*
-
-main color: #3178d8
-secondary color: #da5d72
-
-*/
-
-
-/*------ Main Styles for index page -----*/
-
 body {
-
+  margin: 0;
+  padding: 10px;
+  font-family: arial;
+  font-size: 12px;
 }
 
-a{
-  text-decoration: none;
-}
-
-#mainContainer {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
-.robotContainer {
-  border-style: solid;
-  border-color: black;
-  border-width: thin;
-  display: flex;
-  justify-content: center;
-  width: 24%;
-  margin: 1em;
+.name {
+  color: blue;
+  font-size: 14px;
 }
 
 ul {
-  margin: 0 auto;
-  width: 100%;
+  list-style: none;
   display: flex;
-  justify-content: center;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0;
 }
 
-li {
-  list-style: none;
+div {
+  border: 1px solid lightgrey;
+  padding: 5px;
+  margin: 5px;
+  width: 200px;
+  align-items: center;
+}
+
+.avail {
+  color: indianred;
+}
+
+#extension-is-installed {
+  display: none;
 }

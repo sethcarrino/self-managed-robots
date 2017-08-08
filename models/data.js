@@ -3,6 +3,8 @@ const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 
+//create schema for robots
+
 let userSchema = mongoose.Schema({
   address: {
     city: String,
