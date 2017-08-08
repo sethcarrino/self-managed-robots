@@ -1,0 +1,28 @@
+{
+  "name": "user-directory",
+  "version": "1.0.0",
+  "description": "Building User Directory",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sethcarrino/user-directory.git"
+  },
+  "author": "Seth Carrino",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sethcarrino/user-directory/issues"
+  },
+  "homepage": "https://github.com/sethcarrino/user-directory#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "chalk": "^2.0.1",
+    "express": "^4.15.3",
+    "express-session": "^1.15.5",
+    "express-validator": "^3.2.1",
+    "mongodb": "^2.2.30",
+    "mustache-express": "^1.2.5"
+  }
+}
