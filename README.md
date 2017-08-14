@@ -5,5 +5,5 @@
 ## Download
 
 ```
-mongoimport --db robots --collection profiles --out primer-dataset.json
+mongoimport --db robotsdb --collection users --out users.json
 ```

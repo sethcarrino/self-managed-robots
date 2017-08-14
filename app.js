@@ -1,43 +1,38 @@
-const express = require("express")
-const mustacheExpress = require("mustache-express")
-const path = require("path")
-const data = require("./models/data")
-const app = express()
-const indexRoute = require("./routes/index");
-const passport = require("passport");
-const userRoute = require("./routes/users");
-const bodyParser = require("body-parser");
+const express = require('express');
+const handlebars = require('express-handlebars');
+const usersRoutes = require('./routes/users');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const mongoose = require('mongoose');
+const bluebird = require('bluebird');
+mongoose.Promise = bluebird;
+
+const app = express();
+
+app.engine('handlebars', handlebars());
+app.set('views', './views');
+app.set('view engine', 'handlebars');
 
 
-// setup mustache template engine
-app.engine("mustache", mustacheExpress())
-app.set("views", "./views")
-app.set("view engine", "mustache")
-
-// set port to add to app.listen
-app.set("port", 3000)
-
-// middleware to parse data
-app.use(bodyParser.urlencoded({extended : false}));
-app.use(express.static(path.join(__dirname, "public")))
-
-// setup passport
-app.use(passport.initialize());
-app.use(passport.session());
-
-app.use("/", indexRoute)
-app.use("/users", userRoute);
+app.use(
+  session({
+    secret: 'V4P3N4710N',
+    resave: false,
+    saveUninitialized: true
+  })
+);
 
 
-// setup listning and conenction route
-require("./mongooseConnect")
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
-app.listen(app.get("port"), err => {
-  if (err) {
-    throw err
-    exit(1)
-  }
-  console.log(
-    `Successfully running application`
-  )
-})
+// serve static files
+app.use(express.static('public'));
+
+// router setup
+app.use('/', usersRoutes);
+
+
+mongoose
+  .connect('mongodb://localhost:27017/robotsdb', { useMongoClient: true })
+  .then(() => app.listen(3000, () => console.log('Successfully started application')));
